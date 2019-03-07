@@ -32,7 +32,7 @@ import software.amazon.awssdk.services.ec2.model.SecurityGroup;
 
 public class EC2ClientResourcesClass {
 
-	Ec2Client ec2 = Ec2Client.builder().region(Region.EU_WEST_1)
+	Ec2Client ec2 = Ec2Client.builder().region(Region.EU_WEST_2)
 			.credentialsProvider(EnvironmentVariableCredentialsProvider.create()).build();
 
 	/**
@@ -78,10 +78,10 @@ public class EC2ClientResourcesClass {
 		DescribeSecurityGroupsResponse securityGroupResponse;
 
 		List<String> securityGroupNames = new ArrayList<>();
-		securityGroupNames.add("vpc_threetier_web");
-		securityGroupNames.add("sg_test_web");
-		securityGroupNames.add("elb_sg");
-		securityGroupNames.add("bastion-security-group-20190307094225879300000001");
+		securityGroupNames.add("sg-08f9960cb720d253e");
+		//securityGroupNames.add("sg_test_web");
+		//securityGroupNames.add("elb_sg");
+		//securityGroupNames.add("bastion-security-group-20190307094225879300000001");
 
 		DescribeSecurityGroupsRequest request = DescribeSecurityGroupsRequest.builder().groupNames(securityGroupNames)
 				.build();

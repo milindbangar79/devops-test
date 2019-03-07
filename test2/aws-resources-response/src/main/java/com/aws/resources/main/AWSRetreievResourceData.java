@@ -25,7 +25,7 @@ public class AWSRetreievResourceData {
 		ec2ClientResource = new EC2ClientResourcesClass();
 
 		output.setInstance(ec2ClientResource.getInstance());
-		output.setSecurityGrp(ec2ClientResource.getSecurityGroup());
+		//output.setSecurityGrp(ec2ClientResource.getSecurityGroup());
 		output.setAddress(ec2ClientResource.getAddress());
 		output.setRegion(ec2ClientResource.getRegion());
 		output.setZone(ec2ClientResource.getAvailabilityZone());

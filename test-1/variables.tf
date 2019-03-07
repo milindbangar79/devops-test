@@ -3,15 +3,15 @@ variable "create_vpc" {
   default     = true
 }
 variable "region" {
-  default = "eu-west-1"
+  default = "eu-west-2"
 }
 
 variable "aws_region" {
-  default = "eu-west-1"
+  default = "eu-west-2"
 }
 
 variable "azs" {
-  default = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+  default = ["eu-west-2a", "eu-west-2b", "eu-west-2c"]
 }
 #Currently not in use
 variable "private_subnets" {
@@ -48,7 +48,7 @@ variable "application_name" {
 
 variable "ami" {
   description = "Amazon Linux AMI"
-  default = "ami-031a3db8bacbcdc20"
+  default = "ami-0a15b1ad20094b9f5"
 }
 
 variable "key_path" {
