@@ -1,6 +1,6 @@
 # Define the security group for public subnet
 resource "aws_security_group" "sgweb" {
-  name = "vpc_test_web"
+  name = "vpc_threetier_web"
   description = "Allow incoming HTTP connections & SSH access"
 
   ingress {
