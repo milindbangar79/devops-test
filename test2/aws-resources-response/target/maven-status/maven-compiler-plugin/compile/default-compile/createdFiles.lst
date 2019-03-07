@@ -1,0 +1,14 @@
+com/aws/resources/domain/UserIdGroupPairObj.class
+com/aws/resources/domain/AddressObj.class
+com/aws/resources/domain/RegionObj.class
+com/aws/resources/domain/KeyPairObj.class
+com/aws/resources/main/AWSRetreievResourceData.class
+com/aws/resources/domain/InstanceGroupIdentifier.class
+com/aws/resources/domain/EC2OutputDomain.class
+com/aws/resources/domain/SecurityGroupObj.class
+com/aws/resources/ec2/EC2ClientResourcesClass.class
+com/aws/resources/domain/IpRangeObj.class
+com/aws/resources/domain/ZoneObj.class
+com/aws/resources/domain/InstanceObj.class
+com/aws/resources/domain/PrefixListIdObj.class
+com/aws/resources/domain/IpPermissionObj.class

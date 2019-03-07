@@ -1,7 +1,3 @@
-data "aws_subnet_ids" "all" {
-  vpc_id = "${aws_vpc.default.id}"
-}
-
 ######
 # ELB
 ######
@@ -80,6 +76,6 @@ module "ec2_instances" {
   # The same availability zone as our instance
   
   vpc_security_group_ids      = ["${aws_security_group.elb.id}"]
-  subnet_id                   = "${element(data.aws_subnet_ids.all.ids, 0)}"
+  subnet_id                   = "${aws_subnet.public-subnet.id}"
   associate_public_ip_address = true
 }

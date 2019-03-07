@@ -6,10 +6,10 @@ module "bastion" {
   instance_count = 1
 
   ami                         = "${var.ami}"
-  instance_type               = "t2.nano"
+  instance_type               = "${var.bastion-instance-type}"
   monitoring                  = true
   vpc_security_group_ids      = ["${ module.bastion_sg.this_security_group_id }"]
-  subnet_id                   = "${ aws_subnet.public-subnet.cidr_block }"
+  subnet_id                   = "${aws_subnet.public-subnet.id}"
   associate_public_ip_address = true
   iam_instance_profile        = "${ aws_iam_instance_profile.bastion.name }"
   user_data                   = "${ data.template_file.ssh_ec2_iam_user_data.rendered }"

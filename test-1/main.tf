@@ -5,14 +5,15 @@ locals {
 }
 
 
-################
-# Public subnet
-################
+###################
+# VPC Configuration
+###################
 resource "aws_vpc" "default" {
 
   cidr_block = "${var.vpc_cidr}"
   enable_dns_hostnames = "${var.enable_dns_hostnames}"
   enable_classiclink = "${var.enable_classiclink}"
+  
 
   tags {
     Name = "threetier-application-vpc"
@@ -28,6 +29,7 @@ resource "aws_subnet" "public-subnet" {
   vpc_id = "${aws_vpc.default.id}"
   cidr_block = "${var.public_subnet_cidr}"
   availability_zone = "${var.azs[0]}"
+  map_public_ip_on_launch = true
 
   tags {
     Name = "Web Public Subnet"
@@ -42,6 +44,7 @@ resource "aws_subnet" "private-subnet" {
   vpc_id = "${aws_vpc.default.id}"
   cidr_block = "${var.private_subnet_cidr}"
   availability_zone = "${var.azs[0]}"
+  
 
   tags {
     Name = "Database Private Subnet"
@@ -58,8 +61,6 @@ resource "aws_internet_gateway" "gw" {
     BuildWith = "terraform"
   }
 }
-
-
 
 # Define the route table
 resource "aws_route_table" "web-public-rt" {
