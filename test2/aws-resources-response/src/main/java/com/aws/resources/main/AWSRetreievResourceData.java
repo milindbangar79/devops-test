@@ -1,5 +1,7 @@
 package com.aws.resources.main;
 
+import java.io.PrintWriter;
+
 import com.aws.resources.domain.EC2OutputDomain;
 import com.aws.resources.ec2.EC2ClientResourcesClass;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -14,7 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class AWSRetreievResourceData {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws AWSResourceCustomException {
 
 		EC2ClientResourcesClass ec2ClientResource;
 
@@ -34,12 +36,17 @@ public class AWSRetreievResourceData {
 		ObjectMapper mapper = new ObjectMapper();
 
 		try {
-			System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(output));
+			//Not so efficient, but would work for small code testing in non-production environment
+			PrintWriter resourceOutput = new PrintWriter(System.out,true);
+			
+			String format = "%s\n" ;
+			
+			resourceOutput.printf(format, mapper.writerWithDefaultPrettyPrinter().writeValueAsString(output));
+
 		} catch (JsonProcessingException e) {
-			e.printStackTrace();
+			throw new AWSResourceCustomException(e.getCause());
 		}
 
 	}
-	//arn:aws:iam::177379462960:user/milindbangar
 
 }
