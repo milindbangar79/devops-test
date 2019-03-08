@@ -35,3 +35,9 @@ hs_err_pid*
 ./target/*
 .project
 .settings/*
+test-3/nestedobject-test/.classpath
+test2/aws-resources-response/.classpath
+test2/aws-resources-response/.settings/org.eclipse.jdt.core.prefs
+*.prefs
+test-3/nestedobject-test/.classpath
+*.prefs
