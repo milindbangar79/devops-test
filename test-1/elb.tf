@@ -62,7 +62,7 @@ module "elb" {
 }
 
 ################
-# EC2 instances
+# EC2 Instances
 ################
 module "ec2_instances" {
   source = "terraform-aws-modules/ec2-instance/aws"

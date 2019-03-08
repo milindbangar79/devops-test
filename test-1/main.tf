@@ -17,7 +17,7 @@ resource "aws_vpc" "default" {
 
   tags {
     Name = "threetier-application-vpc"
-    BuildWith = "terraform"
+    BuiltWith = "terraform"
   }
 }
 

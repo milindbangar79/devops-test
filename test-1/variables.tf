@@ -48,7 +48,7 @@ variable "application_name" {
 
 variable "ami" {
   description = "Amazon Linux AMI"
-  default = "ami-0a15b1ad20094b9f5"
+  default = "ami-f976839e"
 }
 
 variable "key_path" {
