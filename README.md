@@ -4,12 +4,12 @@ This is the test repo for Devops.
 
 Folloiwng are the folders in the repository to address different questions in the test:
 
-# Test 1 : Create 3 Tier Environment 
-# Test 2 : Fetch the metadata of the resources created in Test 1 
-# Test 3 : Evaluate an object and provide the expected outcome 
+## Test 1 : Create 3 Tier Environment 
+## Test 2 : Fetch the metadata of the resources created in Test 1 
+## Test 3 : Evaluate an object and provide the expected outcome 
 
 
-## Test 1 :  Create 3 Tier Environment ##
+### Test 1 :  Create 3 Tier Environment ##
 
 The sample code is available under "test-1" folder of the respository.
 
@@ -17,6 +17,9 @@ Cloud provider and tool used :
 
 1. AWS Cloud Provider
 2. Terraform for infra provisoning 
+3. The infrastrcuture is created in only one region (eu-west-2)
+4. EC2 auto scaling not configured/built
+5. CloudWatch monitoring not configured/built
 
 The Terraform scripts can currently be run using following commands :
 
@@ -33,9 +36,9 @@ Terraform scripts will create the following artefacts on AWS :
 3. Bastian host - to connect through SSH to other EC2 instance (including Private)
 4. EC2 instances including:
   a. ELB - With Public IP
-  b. Web Tier
-  c. Database Tier
-  d. Bastion
+  b. Web Tier - With Private IP
+  c. Database Tier - With Private IP
+  d. Bastion - With Public IP
 5. Subnets ( 1 Public and 1 Private - Configurable for nore)
   a. Public - applied to ELB and Bastion only
   b. Private - applied to Web and Database Tiers
@@ -62,9 +65,11 @@ Terraform scripts will create the following artefacts on AWS :
    f. Egress Rules for Database Tier (sgdb)
      a) Denied access on any other tcp port
 7. Network ACL
+8. Elastic IP
+9. Internet Gateway
 ```
 
-## Test 2 : Fetch the metadata of cloud resources created in Test 1 ##
+### Test 2 : Fetch the metadata of cloud resources created in Test 1 ##
 
 The sample code is available under "test-2" folder of the respository.
 
@@ -271,11 +276,25 @@ Sample JSON output from the Client :
 }
 ```
 
-## Test 3 : Evaluate an object and provide the expected outcome ##
+### Test 3 : Evaluate an object and provide the expected outcome ##
 
 The sample code is available under "test-3" folder of the respository.
 
-Requirement Statement :
+```
+1. Used the Junit Framework provded by IDE
+2. System Rule Dependency :
+
+	<dependencies>
+		<dependency>
+			<groupId>com.github.stefanbirkner</groupId>
+			<artifactId>system-rules</artifactId>
+			<version>${system-rules.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+```
+
+#### Requirement Statement : 
 
 ```
 Fetch the last value in a nested object of type {"x":{"y":"{"z":"a"}"}}
