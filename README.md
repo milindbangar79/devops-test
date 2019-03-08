@@ -54,7 +54,7 @@ Terraform scripts will create the following artefacts on AWS :
      b) Denied access on any other port(s)
   c. Ingress Rules for Web Tier
      a) Incoming traffic on port 80 - Routed traffic from ELB
-     b) SSH 22(from bastion only)
+     b) SSH 22(from bastion)
      c) 443(Not implemented. Requires Certificate)
      d) ICMP : To report any error with network 
      e) Denied access on any other port(s)
@@ -62,6 +62,7 @@ Terraform scripts will create the following artefacts on AWS :
      a) Denied access on any other port(s)
    e. Ingress Rules for Database Tier (sgdb - for MySQL Database)  
      a) Incoming Traffic allowed only on PORT 3306
+     b) SSH 22(from bastion)
    f. Egress Rules for Database Tier (sgdb)
      a) Denied access on any other tcp port
 7. Network ACL
