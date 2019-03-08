@@ -23,7 +23,7 @@ public class NestedObjectClassTest extends NestedObjectClass {
         System.exit(0);
 		main(args);
 	}
-
+	
 	@Test
 	public void testNestedObjectLogicWithCorrectValues() {
 		instance = new InnerNestedObjectClass();
@@ -43,7 +43,9 @@ public class NestedObjectClassTest extends NestedObjectClass {
 		testMapForValue = testMap.get(args[0]).get(args[1]);
 
 		nestedObj.getValueFromMap(nestedObj, testMapForValue, args[2]);
-
+		
+		assertNotNull(testMap);
+		assertNotNull(testMap.containsKey("x"));
 		assertEquals("Expected Return Value should be a", "a", nestedObj.getNestedValue());
 		
 		exit.expectSystemExit();
