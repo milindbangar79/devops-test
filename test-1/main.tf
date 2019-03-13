@@ -38,7 +38,7 @@ resource "aws_subnet" "public-subnet" {
 }
 
 #################
-# Private subnet
+# Private Subnet
 #################
 resource "aws_subnet" "private-subnet" {
   vpc_id = "${aws_vpc.default.id}"
