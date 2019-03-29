@@ -4,7 +4,7 @@ resource "aws_key_pair" "default" {
   public_key = "${file("${var.key_path}")}"
 }
 
-# Define webserver inside the public subnet
+# Define webserver inside the private subnet
 resource "aws_instance" "wb" {
 
    ami  = "${var.ami}"
